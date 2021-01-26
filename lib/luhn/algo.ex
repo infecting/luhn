@@ -46,6 +46,8 @@ defmodule Luhn.Algo do
     |> Enum.sum()
   end
 
+  defp check(x) when x < 10, do: x
+
   defp generate_checksum(prefix, sum, len) do
     derived = len - 1
     new_len = :math.pow(10, derived)
@@ -55,13 +57,12 @@ defmodule Luhn.Algo do
     validate_checksum(x, prefix, final, sum, len) 
   end
 
-  defp validate_checksum(_x = false, prefix, final, sum, len) do
+  defp validate_checksum(_x = false, prefix, _final, sum, len) do
     generate_checksum(prefix, sum, len) 
   end
 
-  defp validate_checksum(_x = true, prefix, final, sum, len), do: final 
+  defp validate_checksum(_x = true, _prefix, final, _sum, _len), do: final 
 
-  defp check(x) when x < 10, do: x
 
   defp validate_random(_x = true, _len, num) do
     {:ok, num}
