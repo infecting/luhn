@@ -1,6 +1,6 @@
-# Luhn
+# Luhn in Elixir
 
-**TODO: Add description**
+**All you could ever need for luhn verification and generation, in elixir**
 
 ## Installation
 
