@@ -4,18 +4,45 @@
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `luhn` to your list of dependencies in `mix.exs`:
-
 ```elixir
 def deps do
   [
-    {:luhn, "~> 0.1.0"}
+    {:dep_from_git, git: "https://github.com/infecting/luhn.git"}
   ]
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/luhn](https://hexdocs.pm/luhn).
+## Documentation
+
+**Validate Luhn Number**
+
+```elixir
+Luhn.valid?(12345674)
+
+true
+
+```
+
+**Validate array of Luhn Numbers**
+```elixir
+Luhn.valid([1234, 5678]
+
+[false, false]
+```
+
+
+**Generate random Luhn Number**
+```elixir
+Luhn.random_gen(5)
+
+{:ok, 61192}
+```
+
+**Generate random Luhn Number from base**
+```elixir
+Luhn.generate_from_joker("1234***")
+
+1234707
+```
+
 
