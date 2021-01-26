@@ -25,7 +25,7 @@ true
 
 **Validate array of Luhn Numbers**
 ```elixir
-Luhn.valid?([1234, 5678]
+Luhn.valid?([1234, 5678])
 
 [false, false]
 ```
@@ -35,7 +35,7 @@ Luhn.valid?([1234, 5678]
 ```elixir
 Luhn.random_gen(5)
 
-{:ok, 61192}
+61192
 ```
 
 **Generate random Luhn Number from base**

@@ -5,9 +5,7 @@ defmodule Luhn.Algo do
     |> Integer.mod(10) == 0
   end
 
-  def valid?(nums) when is_list(nums) do
-    Enum.map(nums, &valid?/1)
-  end
+  def valid?(nums) when is_list(nums), do: Enum.map(nums, &valid?/1)
 
   def random_gen(x) do
     derived = x - 1
@@ -17,8 +15,7 @@ defmodule Luhn.Algo do
     validate_random(t, x, num)
   end
 
-  def checksum(num) do
-    list = Integer.digits(num)
+  def checksum(num) do list = Integer.digits(num)
     [first | rest] = Enum.reverse(list) 
     luhn = Enum.map_every(rest, 2, &pass_to_check/1)
     [first| luhn]
@@ -32,7 +29,6 @@ defmodule Luhn.Algo do
     sum = checksum(prefix)
     len = length(t)
     generate_checksum(prefix, sum, len) 
-
   end
 
   def pass_to_check(x) do
@@ -57,18 +53,11 @@ defmodule Luhn.Algo do
     validate_checksum(x, prefix, final, sum, len) 
   end
 
-  defp validate_checksum(_x = false, prefix, _final, sum, len) do
-    generate_checksum(prefix, sum, len) 
-  end
+  defp validate_checksum(_x = false, prefix, _final, sum, len), do: generate_checksum(prefix, sum, len) 
 
   defp validate_checksum(_x = true, _prefix, final, _sum, _len), do: final 
 
+  defp validate_random(_x = true, _len, num), do: num
 
-  defp validate_random(_x = true, _len, num) do
-    {:ok, num}
-  end
-
-  defp validate_random(_x = false, len, _num) do
-    random_gen(len)
-  end
+  defp validate_random(_x = false, len, _num), do: random_gen(len)
 end
