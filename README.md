@@ -25,7 +25,7 @@ true
 
 **Validate array of Luhn Numbers**
 ```elixir
-Luhn.valid([1234, 5678]
+Luhn.valid?([1234, 5678]
 
 [false, false]
 ```
