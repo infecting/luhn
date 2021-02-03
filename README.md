@@ -8,6 +8,8 @@
 def deps do
   [
     {:dep_from_git, git: "https://github.com/infecting/luhn.git"}
+    # or this 
+    {:luhnacy, "~> 0.1.0"}
   ]
 end
 ```
